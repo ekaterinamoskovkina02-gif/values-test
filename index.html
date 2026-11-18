@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Короткий тест: 22 утверждения, процент соответствия и советы, как подтянуть слабые шкалы.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Насколько ты соответствуешь традиционным ценностям?">
+<meta property="og:description" content="Короткий тест: 22 утверждения, процент соответствия и советы.">
+<style>[hidden]{display:none!important}body{margin:0}</style>
+<title>Тест на традиционные ценности</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,900&family=VT323&family=Golos+Text:wght@400;500;600&family=Caveat:wght@500;600&display=swap">
+<style>
+/* Layout: desktop-OS metaphor. Ticker and checker strip on top, sticker-style title, every block is a window, taskbar fixed at the bottom.
+   Single light look on purpose: the Y2K pink/white world has no dark variant, so every color is set explicitly here. */
+:root {
+  color-scheme: light;
+  --bg: #fbf4fd;
+  --paper: #ffffff;
+  --ink: #2a1a3a;
+  --edge: #2c2a5e;
+  --muted: #6b5a82;
+  --pink: #ff8fd0;
+  --pink-soft: #ffe1f3;
+  --pink-deep: #c23a86;
+  --lav: #cdb8ff;
+  --blue: #a9ccff;
+  --blue-soft: #dfeaff;
+  --mint: #46c9a0;
+  --amber: #ffb454;
+  --rose: #ff5c8a;
+  --note: #fff3b0;
+  --track: #efe6fa;
+  --f-body: "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-sticker: "Rubik", "Golos Text", system-ui, sans-serif;
+  --f-pixel: "VT323", "Courier New", monospace;
+  --f-hand: "Caveat", "Comic Sans MS", cursive;
+}
+* { box-sizing: border-box; }
+body {
+  background:
+    radial-gradient(60% 35% at 0% 0%, #ffe3f4 0, transparent 70%),
+    radial-gradient(55% 35% at 100% 25%, #dfe9ff 0, transparent 70%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* top ticker + checker strip */
+.ticker { background: linear-gradient(90deg, #ffc6ea, #e2c8ff 60%, #c8dcff); font-family: var(--f-pixel); font-size: 1.2rem; line-height: 1; }
+.ticker .in {
+  display: flex; align-items: center; gap: 10px; padding-block: 7px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.checker { height: 12px; background: conic-gradient(var(--edge) 25%, #fff 0 50%, var(--edge) 0 75%, #fff 0) 0 0 / 24px 24px; border-block: 2px solid var(--edge); }
+.sp { width: 15px; height: 15px; color: #fff; flex: none; animation: tw 2.6s ease-in-out infinite; }
+.sp.d2 { animation-delay: 0.9s; }
+.sp.d3 { animation-delay: 1.7s; }
+@keyframes tw { 50% { transform: scale(0.75) rotate(14deg); } }
+
+.wrap {
+  max-width: 640px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px;
+  padding-block: 22px calc(84px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.stack { display: flex; flex-direction: column; gap: 22px; }
+
+/* sticker lettering: dark outline copy underneath, gradient copy on top */
+.sticker { position: relative; margin: 0; font-family: var(--f-sticker); font-style: italic; font-weight: 900; line-height: 1.15; --o: 3px; text-wrap: balance; }
+.sticker .ol, .sticker .fl { display: block; padding: 0 0.14em 0.06em 0; }
+.sticker .ol {
+  position: absolute; inset: 0; color: var(--edge); pointer-events: none; user-select: none;
+  text-shadow:
+    var(--o) 0 0 var(--edge), calc(var(--o) * -1) 0 0 var(--edge), 0 var(--o) 0 var(--edge), 0 calc(var(--o) * -1) 0 var(--edge),
+    calc(var(--o) * 0.75) calc(var(--o) * 0.75) 0 var(--edge), calc(var(--o) * -0.75) calc(var(--o) * 0.75) 0 var(--edge),
+    calc(var(--o) * 0.75) calc(var(--o) * -0.75) 0 var(--edge), calc(var(--o) * -0.75) calc(var(--o) * -0.75) 0 var(--edge),
+    calc(var(--o) * 1.5) calc(var(--o) * 1.8) 0 var(--edge);
+}
+.sticker .fl {
+  position: relative; color: transparent; -webkit-text-fill-color: transparent;
+  background: linear-gradient(180deg, #ffffff 0%, #ffc6ea 38%, #ff5fb7 100%); -webkit-background-clip: text; background-clip: text;
+}
+h1.sticker { font-size: clamp(1.7rem, 8vw, 2.6rem); }
+h2.sticker { font-size: clamp(1.55rem, 7vw, 2.1rem); --o: 2.5px; margin-top: 10px; }
+
+/* hero */
+.hero { position: relative; padding-top: 70px; }
+.stickers { position: absolute; inset: 0 0 auto 0; height: 80px; pointer-events: none; }
+.cd {
+  position: absolute; right: 4px; top: 0; width: 76px; height: 76px; border-radius: 50%; border: 2px solid var(--edge);
+  background: conic-gradient(from 30deg, #f6f6ff, #bcd0ff, #fff, #ffd0ee, #dffbe8, #cdbdff, #f6f6ff);
+  box-shadow: 3px 3px 0 rgba(44, 42, 94, 0.25);
+}
+.cd::after { content: ""; position: absolute; inset: 32%; border-radius: 50%; background: var(--bg); border: 2px solid var(--edge); }
+.st { position: absolute; }
+.st.star { width: 46px; height: 46px; right: 74px; top: 28px; transform: rotate(-12deg); }
+.st.heart { width: 36px; height: 36px; left: 0; top: 22px; transform: rotate(-10deg); }
+.st.s1 { width: 22px; height: 22px; left: 50px; top: 4px; color: #fff; }
+.st.s2 { width: 16px; height: 16px; left: 70px; top: 46px; color: #fff; }
+.lead { margin: 16px 0 0; font-size: 1.08rem; max-width: 46ch; }
+
+/* windows */
+.win { background: var(--paper); border: 2px solid var(--edge); border-radius: 6px; box-shadow: 5px 5px 0 rgba(44, 42, 94, 0.22); overflow: hidden; }
+.tb {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 5px 6px 5px 10px;
+  background: linear-gradient(90deg, #a9ccff, #cdb8ff); border-bottom: 2px solid var(--edge);
+  font-family: var(--f-pixel); font-size: 1.3rem; line-height: 1; color: var(--ink);
+}
+.tb.pk { background: linear-gradient(90deg, #ffc2e6, #e4c6ff); }
+.tb.cy { background: linear-gradient(90deg, #b5ecf2, #cdb8ff); }
+.tt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ctl { display: flex; gap: 4px; flex: none; }
+.ctl i { display: grid; place-items: center; width: 20px; height: 18px; border: 2px solid var(--edge); background: var(--blue-soft); font-style: normal; font-size: 1.05rem; line-height: 1; box-shadow: inset 1px 1px 0 #fff; }
+.ctl i:last-child { background: #ffc6dc; }
+.wb { padding: 18px; }
+
+/* quiz */
+.prow { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.pnum { font-family: var(--f-pixel); font-size: 1.3rem; line-height: 1; min-width: 3.2ch; text-align: right; }
+.seg { flex: 1; height: 20px; border: 2px solid var(--edge); background: #fff; padding: 2px; box-shadow: inset 2px 2px 0 #d9ccee; --c: var(--pink); }
+.seg > i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, var(--c) 0 10px, transparent 10px 13px); transition: width 0.25s ease; }
+.seg.good { --c: var(--mint); }
+.seg.mid { --c: var(--amber); }
+.seg.low { --c: var(--rose); }
+.q { font-size: 1.2rem; line-height: 1.4; font-weight: 500; margin: 0 0 18px; min-height: 5.6em; text-wrap: pretty; }
+.opts { display: grid; gap: 12px; }
+.opt {
+  font: inherit; color: var(--ink); text-align: left; cursor: pointer; min-height: 50px; padding: 11px 14px;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  background: var(--pink-soft); border: 2px solid var(--edge); border-radius: 6px;
+  box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #e9b4d3, 2px 2px 0 var(--edge);
+}
+.opt:active { transform: translate(2px, 2px); box-shadow: inset 2px 2px 0 #e9b4d3, inset -2px -2px 0 #fff; }
+.opt[aria-checked="true"] { background: var(--pink); font-weight: 600; transform: translate(2px, 2px); box-shadow: inset 2px 2px 0 #d4569f, inset -2px -2px 0 #ffc2e6; }
+.tick { width: 22px; height: 22px; flex: none; visibility: hidden; }
+.opt[aria-checked="true"] .tick { visibility: visible; }
+.nav { display: flex; margin-top: 18px; }
+.btn {
+  font-family: var(--f-pixel); font-size: 1.3rem; line-height: 1; color: var(--ink); cursor: pointer; padding: 8px 14px;
+  background: var(--blue-soft); border: 2px solid var(--edge); border-radius: 4px;
+  box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #b3c4ec, 2px 2px 0 var(--edge);
+}
+.btn:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: inset 2px 2px 0 #b3c4ec, inset -2px -2px 0 #fff; }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn.big { font-size: 1.7rem; padding: 14px 24px; background: var(--pink); box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #e9a2cd, 3px 3px 0 var(--edge); align-self: flex-start; }
+button:focus-visible, summary:focus-visible { outline: 3px solid var(--pink-deep); outline-offset: 2px; }
+
+/* result */
+.holo .wb { background: linear-gradient(115deg, #ffd9f1 0%, #d9e6ff 30%, #dcfbec 55%, #fff4c9 78%, #f3d9ff 100%); display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 26px 18px 28px; }
+.pill { display: inline-block; font-family: var(--f-pixel); font-size: 1.6rem; line-height: 1; background: #fff; border: 2px solid var(--edge); border-radius: 99px; padding: 7px 16px; box-shadow: 3px 3px 0 var(--edge); transform: rotate(-2deg); }
+.pct { font-size: clamp(4.8rem, 26vw, 8rem); --o: 5px; line-height: 1.08; font-variant-numeric: tabular-nums; }
+.pct small { font-size: 0.5em; margin-left: 0.04em; }
+.peer { margin: 0; display: inline-block; background: #fff; border: 2px solid var(--edge); border-radius: 12px; padding: 10px 16px; font-weight: 600; font-size: 1.05rem; box-shadow: 3px 3px 0 var(--edge); }
+.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.rowtop { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; font-size: 0.98rem; }
+.rowtop b { font-family: var(--f-pixel); font-size: 1.4rem; line-height: 1; }
+
+.recs { display: grid; gap: 28px; }
+.rec .wb { padding: 24px 22px 28px; }
+.rec h3 { margin: 0 0 20px; font-size: 1.25rem; line-height: 1.3; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.rec h3 b { font-family: var(--f-pixel); font-size: 1.6rem; line-height: 1; color: var(--pink-deep); flex: none; }
+.rec .label { font-family: var(--f-pixel); font-size: 1.5rem; line-height: 1; color: var(--pink-deep); margin: 0 0 8px; }
+.rec p { margin: 0 0 24px; font-size: 1.12rem; line-height: 1.6; }
+.rec ul { margin: 0; padding-left: 1.25rem; display: grid; gap: 14px; font-size: 1.08rem; line-height: 1.55; }
+.rec li::marker { color: var(--pink-deep); }
+details { margin: 0; }
+summary { display: inline-block; list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+details[open] summary { margin-bottom: 28px; }
+
+.note {
+  position: relative; margin: 6px 4px 0; padding: 18px 20px 24px; transform: rotate(-1.2deg);
+  font-family: var(--f-hand); font-size: 1.3rem; line-height: 1.3; font-weight: 500; color: var(--ink);
+  background: var(--note); border: 2px solid var(--edge); box-shadow: 4px 4px 0 rgba(44, 42, 94, 0.22);
+}
+.note::after { content: ""; position: absolute; right: 0; bottom: 0; width: 24px; height: 24px; background: linear-gradient(135deg, transparent 50%, #e8d676 50%); }
+
+/* taskbar */
+.taskbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; gap: 8px;
+  padding-top: 5px; padding-bottom: calc(5px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: #e9defa; border-top: 2px solid var(--edge); box-shadow: inset 0 2px 0 #fff;
+  font-family: var(--f-pixel); font-size: 1.3rem; line-height: 1;
+}
+.start { display: flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--pink); border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #e9a2cd, 2px 2px 0 var(--edge); flex: none; }
+.start svg { width: 18px; height: 18px; }
+.task { flex: 1; min-width: 0; padding: 5px 10px; background: #f6efff; border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 #cdbfe6, inset -2px -2px 0 #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tray { display: flex; align-items: center; gap: 6px; padding: 5px 10px; background: #f6efff; border: 2px solid var(--edge); box-shadow: inset 1px 1px 0 #cdbfe6; flex: none; }
+.tray svg { width: 16px; height: 16px; }
+
+@media (prefers-reduced-motion: reduce) { .sp { animation: none; } .seg > i { transition: none; } }
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gStar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="0.5" stop-color="#b48cff"/><stop offset="1" stop-color="#e3c9ff"/></linearGradient>
+    <linearGradient id="gHeart" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5fb7"/><stop offset="1" stop-color="#ffc4e8"/></linearGradient>
+  </defs>
+  <symbol id="sp" viewBox="0 0 24 24"><path d="M12 0c.8 6.6 4.6 10.8 12 12-7.4 1.2-11.2 5.4-12 12-.8-6.6-4.6-10.8-12-12C7.4 10.8 11.2 6.6 12 0z" fill="currentColor" stroke="#2c2a5e" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 1.8l3 6.7 7.3.8-5.5 4.9 1.6 7.2L12 17.7 5.6 21.4l1.6-7.2L1.7 9.3l7.3-.8z" fill="url(#gStar)" stroke="#2c2a5e" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.5 1.1 4.2 2.4h.4c.7-1.3 2.2-2.4 4.2-2.4 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z" fill="url(#gHeart)" stroke="#2c2a5e" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="heartw" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.5 1.1 4.2 2.4h.4c.7-1.3 2.2-2.4 4.2-2.4 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z" fill="#fff" stroke="#2c2a5e" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="ticker" aria-hidden="true">
+  <div class="in">
+    <svg class="sp" viewBox="0 0 24 24"><use href="#sp"></use></svg>
+    <span>тест на традиционные ценности</span>
+    <svg class="sp d2" viewBox="0 0 24 24"><use href="#sp"></use></svg>
+    <svg class="sp d3" viewBox="0 0 24 24"><use href="#sp"></use></svg>
+  </div>
+</div>
+<div class="checker" aria-hidden="true"></div>
+
+<main class="wrap">
+  <section id="quiz" class="stack" aria-label="Вопросы теста">
+    <header class="hero">
+      <div class="stickers" aria-hidden="true">
+        <div class="cd"></div>
+        <svg class="st star" viewBox="0 0 24 24"><use href="#star"></use></svg>
+        <svg class="st heart" viewBox="0 0 24 24"><use href="#heart"></use></svg>
+        <svg class="st s1 sp" viewBox="0 0 24 24"><use href="#sp"></use></svg>
+        <svg class="st s2 sp d2" viewBox="0 0 24 24"><use href="#sp"></use></svg>
+      </div>
+      <h1 class="sticker">
+        <span class="ol" aria-hidden="true">Насколько ты соответствуешь традиционным ценностям?</span>
+        <span class="fl">Насколько ты соответствуешь традиционным ценностям?</span>
+      </h1>
+      <p class="lead">Оцени степень согласия с утверждениями, не раздумывай слишком долго.</p>
+    </header>
+
+    <div class="win">
+      <div class="tb"><span class="tt" id="qnum">вопрос 1 из 22</span><span class="ctl" aria-hidden="true"><i>–</i><i>▫</i><i>×</i></span></div>
+      <div class="wb">
+        <div class="prow">
+          <div class="seg" role="progressbar" aria-label="Прогресс" aria-valuemin="0" aria-valuemax="22" aria-valuenow="0" id="pbar"><i id="fill"></i></div>
+          <span class="pnum" id="qpct">0%</span>
+        </div>
+        <p class="q" id="qtext"></p>
+        <div class="opts" id="opts" role="radiogroup" aria-label="Ответ"></div>
+        <div class="nav"><button id="back" class="btn" type="button">← назад</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="result" class="stack" hidden aria-live="polite">
+    <div class="win holo">
+      <div class="tb pk"><span class="tt">результат.exe</span><span class="ctl" aria-hidden="true"><i>–</i><i>▫</i><i>×</i></span></div>
+      <div class="wb">
+        <span class="pill">ты соответствуешь на</span>
+        <div class="pct sticker">
+          <span class="ol" aria-hidden="true" id="pctol"></span>
+          <span class="fl" id="pctfl"></span>
+        </div>
+        <p class="peer" id="peer"></p>
+      </div>
+    </div>
+
+    <div class="win">
+      <div class="tb cy"><span class="tt">результат по шкалам</span><span class="ctl" aria-hidden="true"><i>–</i><i>▫</i><i>×</i></span></div>
+      <div class="wb"><ul class="rows" id="rows"></ul></div>
+    </div>
+
+    <h2 class="sticker">
+      <span class="ol" aria-hidden="true">как улучшить результат?</span>
+      <span class="fl">как улучшить результат?</span>
+    </h2>
+    <div id="recs"></div>
+
+    <aside class="note">Тест помогает посмотреть на свои взгляды со стороны и не заменяет психометрическую методику. Процент показывает, насколько твои ответы совпали с формулировками перечня, и не оценивает тебя как человека.</aside>
+    <button id="restart" class="btn big" type="button">пройти заново</button>
+  </section>
+</main>
+
+<footer class="taskbar" aria-hidden="true">
+  <div class="start"><svg viewBox="0 0 24 24"><use href="#heart"></use></svg><span>пуск</span></div>
+  <div class="task">ценности.html</div>
+  <div class="tray"><svg viewBox="0 0 24 24"><use href="#star"></use></svg><span id="clock">20:27</span></div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var OPTIONS = [
+    { l: "Согласна", v: 3 },
+    { l: "Скорее согласна", v: 2 },
+    { l: "Скорее не согласна", v: 1 },
+    { l: "Не согласна", v: 0 }
+  ];
+
+  // r: 1 means the statement is reverse-keyed (agreeing lowers the score)
+  var SCALES = [
+    {
+      name: "Жизнь, достоинство, права и свободы",
+      items: [
+        { t: "Если ради блага многих ограничивают права одного человека, это всё равно проблема.", r: 0 },
+        { t: "Человек, совершивший серьёзный проступок, теряет право на уважительное отношение.", r: 1 }
+      ],
+      mind: "В любой ситуации сначала спрашивай, что она делает с конкретным человеком, и только потом считай общую пользу.",
+      acts: [
+        "Прочитай главу о правах и свободах в Конституции РФ и выпиши три права, которыми пользуешься в обычную неделю.",
+        "Раз в неделю замечай случай, когда к человеку отнеслись без уважения, и продумай, как поступить иначе.",
+        "В споре сначала пересказывай позицию собеседника так, чтобы он согласился с пересказом, и только потом отвечай."
+      ]
+    },
+    {
+      name: "Патриотизм и гражданственность",
+      items: [
+        { t: "Общественные дела должно решать государство, обычным людям вмешиваться незачем.", r: 1 },
+        { t: "Мне небезразлично, что происходит в стране, даже если это не касается меня лично.", r: 0 }
+      ],
+      mind: "Гражданственность складывается из регулярных небольших действий: быть в курсе, участвовать, отвечать за свой участок.",
+      acts: [
+        "Выбери одну тему (образование, наука, городская среда) и раз в неделю читай о ней в нескольких источниках.",
+        "Участвуй хотя бы в одном общественном деле в год: выборы, голосование по проекту, волонтёрская акция.",
+        "Узнай о месте или человеке своей страны, которых раньше не знала, и расскажи об этом кому-нибудь."
+      ]
+    },
+    {
+      name: "Служение Отечеству и ответственность",
+      items: [
+        { t: "Если в моей сфере что-то вредит людям, я вмешаюсь, даже когда это не моя обязанность.", r: 0 },
+        { t: "Судьба страны зависит от тех, кто наверху, а не от меня.", r: 1 }
+      ],
+      mind: "Ответственность появляется, когда ты вслух называешь, за что именно отвечаешь.",
+      acts: [
+        "Запиши, за что ты отвечаешь в работе, семье и сообществе: по одному пункту на каждую сферу.",
+        "Найди проблему рядом с собой и доведи её решение до конца, пусть небольшое.",
+        "Возьми роль, где отвечаешь за результат другого человека: наставничество, курирование новичка."
+      ]
+    },
+    {
+      name: "Высокие нравственные идеалы",
+      items: [
+        { t: "Мораль зависит от ситуации, твёрдых правил нет.", r: 1 },
+        { t: "Я могу отказаться от выгодного предложения, если оно противоречит моим принципам.", r: 0 }
+      ],
+      mind: "Принцип проверяется ценой: идеалом становится то, от чего ты готова отказаться ради него.",
+      acts: [
+        "Напиши 3–5 своих принципов и для каждого вспомни случай, когда ты нарушила его или была близка к этому.",
+        "Каждый вечер отмечай одно решение дня, принятое по принципу, и одно, принятое по удобству.",
+        "Прочитай книгу с тяжёлым моральным выбором героя и обсуди её с кем-нибудь."
+      ]
+    },
+    {
+      name: "Крепкая семья",
+      items: [
+        { t: "Не так важно, в каком формате люди создают семью, главное, чтобы им было хорошо.", r: 1 },
+        { t: "Семья для меня главная опора, важнее карьеры и друзей.", r: 0 }
+      ],
+      mind: "В формулировке перечня речь о союзе мужчины и женщины. Его прочность держится на долгосрочных обязательствах и ежедневном внимании друг к другу.",
+      acts: [
+        "Закрепи за близкими постоянное время: регулярный звонок или ужин без телефона.",
+        "Расспроси старших родственников, как они проходили трудные периоды в браке и воспитании детей, и запиши ответы.",
+        "Обсуди с партнёром или близкими, какие конкретные обязанности стоят за словами «крепкая семья» у вас."
+      ]
+    },
+    {
+      name: "Созидательный труд",
+      items: [
+        { t: "Больше всего удовлетворяет работа, после которой остаётся что-то созданное или улучшенное.", r: 0 },
+        { t: "Работа нужна, чтобы зарабатывать, а смысл я ищу в другом месте.", r: 1 }
+      ],
+      mind: "Труд становится созидательным, когда ты видишь, кому нужен результат и что после него изменилось.",
+      acts: [
+        "В каждой рабочей задаче выясняй, кто будет пользоваться результатом, и раз в месяц спрашивай у него отзыв.",
+        "Заведи небольшой проект своими руками и доведи его до публикации или готового изделия.",
+        "Раз в неделю фиксируй один конкретный результат, а не количество отработанных часов."
+      ]
+    },
+    {
+      name: "Приоритет духовного над материальным",
+      items: [
+        { t: "Я выбрала бы меньший доход ради дела, которое считаю по-настоящему важным.", r: 0 },
+        { t: "Финансовая стабильность важнее поиска смысла.", r: 1 }
+      ],
+      mind: "Приоритет виден по тому, на что уходят твои время и деньги.",
+      acts: [
+        "Просмотри расходы и часы за месяц и посчитай, какая доля ушла на дела, не связанные с выгодой.",
+        "Заведи регулярный час без экрана: прогулка, чтение, молитва или тишина, как тебе ближе.",
+        "Раз в квартал отказывайся от одной покупки или подработки ради занятия, которое для тебя важнее."
+      ]
+    },
+    {
+      name: "Гуманизм, милосердие, справедливость",
+      items: [
+        { t: "Люди обычно получают то, что заслужили, и жалеть их не нужно.", r: 1 },
+        { t: "Помочь незнакомому человеку без ожидания благодарности для меня естественно.", r: 0 }
+      ],
+      mind: "Справедливость без милосердия превращается в счёт обид, а милосердие без справедливости в потакание. Держи обе стороны.",
+      acts: [
+        "Раз в неделю делай одно доброе дело, о котором никто не узнает.",
+        "Прежде чем оценить человека, спроси себя, чего ты о нём не знаешь.",
+        "Подключись к волонтёрству или благотворительности на постоянной основе, хотя бы на пару часов в месяц."
+      ]
+    },
+    {
+      name: "Коллективизм и взаимопомощь",
+      items: [
+        { t: "Ради общего результата я готова уступить в своих интересах.", r: 0 },
+        { t: "Рассчитывать стоит только на себя.", r: 1 }
+      ],
+      mind: "Взаимопомощь работает как долгий обмен: сначала даёшь, не ведя счёта.",
+      acts: [
+        "Раз в неделю предлагай коллеге помощь с конкретной задачей.",
+        "Тренируйся просить помощи сама: это тоже форма взаимоуважения.",
+        "Войди в сообщество с общей целью (клуб, соседи, проект) и возьми там постоянную обязанность."
+      ]
+    },
+    {
+      name: "Историческая память и преемственность",
+      items: [
+        { t: "Опыт прошлых поколений устарел, молодым стоит строить всё заново.", r: 1 },
+        { t: "Я знаю историю своей семьи минимум на три поколения назад.", r: 0 }
+      ],
+      mind: "Преемственность начинается со знания, откуда взялись твои привычки и ценности.",
+      acts: [
+        "Запиши историю семьи на три поколения: имена, места, профессии и по одному рассказу о каждом.",
+        "Раз в месяц читай первоисточник или добротный исторический текст вместо пересказа.",
+        "Передай что-то дальше: рецепт, семейную традицию, рассказ для младшего."
+      ]
+    },
+    {
+      name: "Единство народов России",
+      items: [
+        { t: "Страна выигрывает, когда люди разных национальностей и вер чувствуют общую принадлежность.", r: 0 },
+        { t: "С людьми своей культуры мне комфортнее, чем с остальными.", r: 1 }
+      ],
+      mind: "Единство строится на личных знакомствах с людьми других культур и на общих делах с ними.",
+      acts: [
+        "Узнай о культуре, языке и праздниках одного народа России, о котором знаешь мало, и пообщайся с его представителем.",
+        "Замечай, когда сама делишь людей на «наших» и «не наших», и спрашивай себя, на каком основании.",
+        "Читай книги и слушай музыку разных регионов и народов страны."
+      ]
+    }
+  ];
+
+  // Fixed shuffle of the 22 statements: index = scale * 2 + item
+  var ORDER = [0, 5, 10, 15, 20, 3, 8, 13, 18, 1, 6, 11, 16, 21, 4, 9, 14, 19, 2, 7, 12, 17];
+  var N = ORDER.length;
+
+  // PLACEHOLDER comparison data: no real respondents yet, so "other residents" are modeled
+  // as a normal distribution with these invented parameters. Replace with real data later.
+  var PEER_MEAN = 62;
+  var PEER_SD = 14;
+  // Set to false to hide the "higher/lower than N% of residents" line until real data exists.
+  var SHOW_PEER = true;
+
+  var pos = 0;
+  var answers = [];
+  for (var a = 0; a < N; a++) answers.push(null);
+  var timer = null;
+
+  function $(id) { return document.getElementById(id); }
+
+  function normCdf(z) {
+    var t = 1 / (1 + 0.3275911 * Math.abs(z / Math.SQRT2));
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-z * z / 2);
+    return z >= 0 ? 0.5 * (1 + y) : 0.5 * (1 - y);
+  }
+
+  function peerLine(pct) {
+    var below = Math.round(normCdf((pct - PEER_MEAN) / PEER_SD) * 100);
+    below = Math.min(99, Math.max(1, below));
+    if (below >= 50) return "твой результат выше, чем у " + below + "% жителей";
+    return "твой результат ниже, чем у " + (100 - below) + "% жителей";
+  }
+
+  function renderQuestion() {
+    var k = ORDER[pos];
+    var it = SCALES[k >> 1].items[k & 1];
+    $("qnum").textContent = "вопрос " + (pos + 1) + " из " + N;
+    var done = Math.round(pos / N * 100);
+    $("qpct").textContent = done + "%";
+    $("fill").style.width = done + "%";
+    $("pbar").setAttribute("aria-valuenow", String(pos));
+    $("qtext").textContent = it.t;
+    var box = $("opts");
+    box.innerHTML = "";
+    OPTIONS.forEach(function (o) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt";
+      b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", answers[pos] === o.v ? "true" : "false");
+      b.innerHTML = '<span class="ol2"></span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><use href="#heartw"></use></svg>';
+      b.firstChild.textContent = o.l;
+      b.addEventListener("click", function () { choose(o.v); });
+      box.appendChild(b);
+    });
+    $("back").disabled = pos === 0;
+  }
+
+  function choose(v) {
+    if (timer) return;
+    answers[pos] = v;
+    renderQuestion();
+    timer = setTimeout(function () {
+      timer = null;
+      if (pos < N - 1) { pos++; renderQuestion(); } else { finish(); }
+    }, 220);
+  }
+
+  var WIN_CTL = '<span class="ctl" aria-hidden="true"><i>–</i><i>▫</i><i>×</i></span>';
+
+  function recCard(rank, i, sum) {
+    var s = SCALES[i];
+    var p = Math.round(sum / 6 * 100);
+    var acts = s.acts.map(function (x) { return "<li>" + x + "</li>"; }).join("");
+    return '<article class="win rec"><div class="tb pk"><span class="tt">приоритет ' + rank + "</span>" + WIN_CTL + "</div>" +
+      '<div class="wb"><h3><span>' + s.name + "</span><b>" + p + "%</b></h3>" +
+      '<div class="label">как думать</div><p>' + s.mind + "</p>" +
+      '<div class="label">что делать</div><ul>' + acts + "</ul></div></article>";
+  }
+
+  function finish() {
+    var sums = SCALES.map(function () { return 0; });
+    var total = 0;
+    ORDER.forEach(function (k, p) {
+      var s = k >> 1;
+      var it = SCALES[s].items[k & 1];
+      var v = answers[p];
+      var sc = it.r ? 3 - v : v;
+      sums[s] += sc;
+      total += sc;
+    });
+    var pct = Math.round(total / (N * 3) * 100);
+
+    var big = pct + "<small>%</small>";
+    $("pctol").innerHTML = big;
+    $("pctfl").innerHTML = big;
+    $("peer").textContent = peerLine(pct);
+    $("peer").hidden = !SHOW_PEER;
+
+    $("rows").innerHTML = SCALES.map(function (s, i) {
+      var p = Math.round(sums[i] / 6 * 100);
+      var cls = p >= 75 ? "good" : (p >= 50 ? "mid" : "low");
+      return '<li><div class="rowtop"><span>' + s.name + "</span><b>" + p + "%</b></div>" +
+        '<div class="seg ' + cls + '"><i style="width:' + p + '%"></i></div></li>';
+    }).join("");
+
+    var need = SCALES.map(function (s, i) { return { i: i, sum: sums[i] }; })
+      .filter(function (x) { return x.sum <= 4; })
+      .sort(function (x, y) { return (x.sum - y.sum) || (x.i - y.i); });
+
+    var recsEl = $("recs");
+    if (need.length === 0) {
+      recsEl.innerHTML = '<article class="win rec"><div class="tb pk"><span class="tt">все шкалы выше 80%</span>' + WIN_CTL + "</div>" +
+        '<div class="wb"><p>Чтобы удерживать уровень, перепроходи тест раз в квартал и сверяй ответы с тем, как ты поступала на деле.</p></div></article>';
+    } else {
+      var first = need.slice(0, 4).map(function (x, n) { return recCard(n + 1, x.i, x.sum); }).join("");
+      var rest = need.slice(4);
+      var html = '<div class="recs">' + first + "</div>";
+      if (rest.length) {
+        html += '<details style="margin-top:28px"><summary class="btn">ещё шкал: ' + rest.length + '</summary><div class="recs">' +
+          rest.map(function (x, n) { return recCard(n + 5, x.i, x.sum); }).join("") + "</div></details>";
+      }
+      recsEl.innerHTML = html;
+    }
+
+    $("quiz").hidden = true;
+    $("result").hidden = false;
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
+  $("back").addEventListener("click", function () {
+    if (timer) { clearTimeout(timer); timer = null; }
+    if (pos > 0) { pos--; renderQuestion(); }
+  });
+
+  $("restart").addEventListener("click", function () {
+    if (timer) { clearTimeout(timer); timer = null; }
+    pos = 0;
+    for (var j = 0; j < N; j++) answers[j] = null;
+    $("result").hidden = true;
+    $("quiz").hidden = false;
+    renderQuestion();
+    try { window.scrollTo(0, 0); } catch (e) {}
+  });
+
+  function tick() {
+    try {
+      $("clock").textContent = new Date().toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
+    } catch (e) {}
+  }
+  tick();
+  setInterval(tick, 30000);
+
+  renderQuestion();
+})();
+</script>
+
+</body>
+</html>
